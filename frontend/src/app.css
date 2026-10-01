@@ -1,0 +1,81 @@
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124, 58, 237, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(34, 211, 238, 0.08), transparent 60%),
+    var(--mantine-color-dark-8);
+  background-attachment: fixed;
+}
+.app-header { backdrop-filter: blur(10px); background: rgba(17, 18, 24, 0.75) !important; }
+.brand { text-decoration: none; color: inherit; }
+.brand-text {
+  background: linear-gradient(90deg, #c4b5fd, #67e8f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.mantine-AppShell-navbar { background: rgba(17, 18, 24, 0.6); backdrop-filter: blur(8px); }
+.mantine-AppShell-main { min-height: 100vh; }
+
+.glass {
+  background: rgba(30, 32, 41, 0.72) !important;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+.hover-lift { transition: transform 0.15s ease, border-color 0.15s ease; }
+.hover-lift:hover { transform: translateY(-2px); border-color: var(--mantine-color-violet-7) !important; }
+
+/* ---- sandbox browser window ---- */
+.browser {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0d0e13;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(124, 58, 237, 0.08);
+}
+.browser-bar { padding: 8px 12px; background: #1b1c24; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.browser-bar .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.dot.red { background: #ff5f57; } .dot.yellow { background: #febc2e; } .dot.green { background: #28c840; }
+.url-pill {
+  flex: 1; min-width: 0; padding: 4px 12px; border-radius: 999px;
+  background: #0f1015; color: var(--mantine-color-dark-1);
+}
+.rec { width: 7px; height: 7px; border-radius: 50%; background: #fff; display: inline-block; animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.2; } }
+.browser-view { position: relative; width: 100%; background: #fff; }
+.browser-view .frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.browser-view .frame.empty { display: flex; align-items: center; justify-content: center; background: #15161c; }
+.target-box {
+  position: absolute; border: 2px solid #a78bfa; border-radius: 6px;
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.25), 0 0 24px rgba(167, 139, 250, 0.6);
+  animation: target 0.9s ease-in-out infinite; pointer-events: none;
+}
+@keyframes target { 50% { box-shadow: 0 0 0 9px rgba(167, 139, 250, 0.08), 0 0 32px rgba(167, 139, 250, 0.8); } }
+.flash {
+  position: absolute; left: 12px; right: 12px; bottom: 12px; padding: 8px 12px; border-radius: 10px;
+  display: flex; gap: 8px; align-items: center; font-size: 12px; color: #fff;
+  backdrop-filter: blur(6px); animation: rise 0.25s ease-out;
+}
+.flash.ok { background: rgba(13, 148, 136, 0.85); }
+.flash.bad { background: rgba(220, 38, 38, 0.85); }
+@keyframes rise { from { transform: translateY(8px); opacity: 0; } }
+.browser-status { padding: 8px 12px; background: #15161c; border-top: 1px solid rgba(255, 255, 255, 0.06); min-height: 40px; }
+
+/* ---- flow graph ---- */
+.flow-graph { border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.06); background: rgba(13, 14, 19, 0.6); }
+.flow-graph .react-flow__background { opacity: 0.5; }
+.case-node {
+  width: 240px; padding: 10px 12px; border-radius: 12px; cursor: pointer;
+  background: #1e2029; border: 1px solid #2f3240; color: var(--mantine-color-dark-0);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.case-node.running { border-color: var(--mantine-color-blue-5); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18), 0 0 30px rgba(59, 130, 246, 0.25); }
+.case-node.passed { border-color: var(--mantine-color-teal-7); }
+.case-node.failed, .case-node.error { border-color: var(--mantine-color-red-7); }
+.case-node.skipped, .case-node.cancelled { opacity: 0.55; }
+.case-node.selected { outline: 2px solid var(--mantine-color-violet-5); outline-offset: 2px; }
+.case-node .react-flow__handle { opacity: 0; }
+
+.sub-card.ok { background: rgba(255, 255, 255, 0.02); }
+.sub-card.bad { background: rgba(220, 38, 38, 0.08); border-color: rgba(220, 38, 38, 0.3) !important; }
+.step-row.has-error textarea { border-color: var(--mantine-color-red-7); }
+.sticky-top { position: sticky; top: 72px; }

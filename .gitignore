@@ -1,0 +1,25 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# runtime data (sqlite, uploads, cloned repos, screenshots)
+data/
+.browsers/
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# node
+node_modules/
+frontend/dist/
+
+*.log
+.DS_Store
+
+# Claude Code: keep only the shared launch config
+.claude/*
+!.claude/launch.json
